@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>T.M. OPERA O'S KINGDOM</title>
 
     <meta property="og:title" content="T.M. OPERA O'S KINGDOM">
@@ -28,16 +28,19 @@
             font-family: 'ChiruFont', serif;
             overflow: hidden;
             color: white;
+            touch-action: manipulation;
         }
 
+        /* Responsive Button */
         .sheen-btn {
             position: relative;
             background: #1a000c; border: 2px solid var(--gold);
-            color: var(--gold); padding: 15px 40px;
-            font-size: 1.5rem; cursor: pointer; letter-spacing: 5px;
+            color: var(--gold); padding: 12px 30px;
+            font-size: 1.2rem; cursor: pointer; letter-spacing: 3px;
             font-family: 'ChiruFont', serif; overflow: hidden;
             text-decoration: none; display: inline-block;
             transition: 0.3s;
+            text-align: center;
         }
 
         .sheen-btn::before {
@@ -66,8 +69,9 @@
         }
 
         .wobble-text {
-            font-size: 6rem; color: #fff; opacity: 0;
-            text-transform: uppercase; letter-spacing: 12px; position: absolute;
+            font-size: 4rem; color: #fff; opacity: 0;
+            text-transform: uppercase; letter-spacing: 8px; position: absolute;
+            text-align: center; width: 100%;
         }
 
         @keyframes punch {
@@ -86,13 +90,11 @@
             position: relative;
         }
 
+        /* Large Character Art */
         .opera-main-deco {
-            position: absolute; 
-            bottom: 0; 
-            right: 0;
-            width: 450px;
-            z-index: 1; 
-            pointer-events: none;
+            position: absolute; bottom: 0; right: 0;
+            width: 70%; max-width: 450px;
+            z-index: 1; pointer-events: none;
             animation: operaFloat 4s infinite ease-in-out;
         }
 
@@ -102,66 +104,74 @@
         }
 
         .meisho-gif { 
-            position: absolute; 
-            bottom: 20px; 
-            left: 20px; 
-            width: 160px; 
-            z-index: 50; 
+            position: absolute; bottom: 10px; left: 10px; 
+            width: 80px; z-index: 50; 
         }
 
         .header-text {
-            color: var(--gold); 
-            font-size: 2.5rem; 
-            letter-spacing: 4px;
-            margin-top: -120px; 
-            margin-bottom: 50px; 
-            z-index: 10;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-            white-space: nowrap;
+            color: var(--gold); font-size: 1.5rem; letter-spacing: 3px;
+            margin-top: -80px; margin-bottom: 30px; z-index: 10;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+            text-align: center; padding: 0 10px;
         }
 
         .btn-wrapper {
-            display: flex; align-items: center; gap: 30px; position: relative; z-index: 100;
+            display: flex; align-items: center; gap: 15px; position: relative; z-index: 100;
         }
 
         .side-sprite {
-            width: 110px; height: auto;
-            filter: drop-shadow(0 0 8px var(--gold));
+            width: 60px; height: auto;
+            filter: drop-shadow(0 0 5px var(--gold));
             animation: spriteBounce 2s infinite ease-in-out;
         }
 
         @keyframes spriteBounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .flipped-sprite {
-            transform: scaleX(-1);
-        }
+        .flipped-sprite { transform: scaleX(-1); }
 
         .btn-container { position: relative; }
-        .button-crown { position: absolute; top: -35px; right: -28px; width: 60px; z-index: 110; transform: rotate(15deg); }
+        .button-crown { position: absolute; top: -25px; right: -20px; width: 45px; z-index: 110; transform: rotate(15deg); }
 
+        /* Lyric Section */
         .lyric-stage { 
-            position: absolute; bottom: 8%; width: 100%; 
+            position: absolute; bottom: 10%; width: 90%; 
             display: flex; justify-content: center; align-items: center; z-index: 200; 
-            gap: 40px;
+            gap: 10px;
         }
         
-        .lyric-icon { width: 60px; height: auto; }
+        .lyric-icon { width: 30px; height: auto; }
 
-        #active-lyric { font-size: 2.8rem; font-weight: 900; text-shadow: 2px 2px 15px #000; opacity: 0; transition: 0.4s; }
+        #active-lyric { 
+            font-size: 1.4rem; font-weight: 900; text-shadow: 2px 2px 10px #000; 
+            opacity: 0; transition: 0.4s; text-align: center;
+        }
         #active-lyric.show { opacity: 1; }
         .gold-text { color: var(--gold); }
         .pink-text { color: var(--pink); }
         .char { display: inline-block; opacity: 0; animation: charIn 0.1s forwards; }
         @keyframes charIn { to { opacity: 1; transform: translateY(0); } }
-        .big-o { font-size: 3.5rem; color: #fff; margin-left: 20px; }
+        .big-o { font-size: 1.8rem; color: #fff; margin-left: 10px; }
+
+        /* DESKTOP ADJUSTMENTS (Screens wider than 768px) */
+        @media (min-width: 768px) {
+            .header-text { font-size: 2.5rem; margin-top: -120px; }
+            .sheen-btn { font-size: 1.5rem; padding: 15px 40px; }
+            .side-sprite { width: 110px; }
+            .button-crown { width: 60px; top: -35px; right: -28px; }
+            .lyric-icon { width: 60px; }
+            #active-lyric { font-size: 2.8rem; }
+            .big-o { font-size: 3.5rem; }
+            .wobble-text { font-size: 6rem; }
+            .meisho-gif { width: 160px; }
+        }
     </style>
 </head>
 <body>
 
-    <audio id="bg-music" src="https://files.catbox.moe/2fr87j.mp3"></audio>
+    <audio id="bg-music" src="https://files.catbox.moe/2fr87j.mp3" preload="auto"></audio>
 
     <div id="entry-layer">
         <button id="play-btn" class="sheen-btn">ASCEND THE THRONE</button>
@@ -210,7 +220,7 @@
             { text: "T.M. Opera O!", time: 20.8, color: "pink-text", spell: true }
         ];
 
-        playBtn.addEventListener('click', () => {
+        function startSequence() {
             document.getElementById('entry-layer').style.display = 'none';
             document.getElementById('cutscene-overlay').style.display = 'flex';
             audio.play();
@@ -224,7 +234,10 @@
                 document.getElementById('main-site').style.display = 'flex';
                 setTimeout(() => document.getElementById('main-site').style.opacity = '1', 50);
             }, 1500);
-        });
+        }
+
+        playBtn.addEventListener('click', startSequence);
+        playBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startSequence(); });
 
         let currentIndex = -1;
         audio.ontimeupdate = () => {
